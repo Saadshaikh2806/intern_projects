@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    color: #00ffff;
+    background-color: #000;
+    overflow-x: hidden;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#matrix-bg canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+header, nav, main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+header {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+h2 {
+    font-size: 2.2em;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: rgba(0, 20, 20, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+nav a {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00ffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+nav a:hover {
+    text-shadow: 0 0 10px #00ffff;
+    transform: scale(1.1);
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+li::before {
+    content: '>';
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+}
+
+#contact p {
+    margin: 5px 0;
+}
+
+.carousel {
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px 0;
+    height: 360px;
+    cursor: default;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+    width: max-content;
+    padding: 0 20px;
+}
+
+@keyframes clickEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+/* ... (previous CSS rules remain unchanged) ... */
+
+.project-card {
+    flex: 0 0 300px; /* Fixed width */
+    height: 300px; /* Same as width to make it square */
+    background-color: rgba(0, 40, 40, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 20px; /* Increased horizontal margin */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+        /* ... (other styles remain unchanged) ... */
+        margin: 10px auto 10px 20px;
+    
+    box-sizing: border-box; /* Include padding in the width/height calculation */
+
+
+}
+.project-card {
+    /* ... (other styles remain unchanged) ... */
+    margin: 10px 20px 10px 20px;
+}
+
+.carousel-container {
+    /* ... (other styles remain unchanged) ... */
+    width: 1000px; /* or a larger value */
+}
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    background-color: rgba(0, 60, 60, 0.7);
+}
+
+.project-card.clicked {
+    animation: cardClick 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes cardClick {
+    0% { transform: scale(1.05); }
+    40% { transform: scale(0.97); }
+    80% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
+
+.project-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.project-card p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 10px;
+}
+
+#profile-image-container {
+    position: fixed;
+    top: 50%;
+    right: 50px; /* Adjust this value to shift the image more or less to the right */
+    transform: translateY(-50%);
+    width: 400px;
+    height: 500px;
+    z-index: 10;
+    overflow: hidden;
+    background: rgba(0, 40, 40, 0.7);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+    border: 2px solid #00ffff;
+    border-radius: 20px; /* This creates rounded corners */
+}
+
+#profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: grayscale(100%) brightness(90%) sepia(70%) hue-rotate(160deg) saturate(150%) brightness(80%);
+    transition: all 0.3s ease;
+    border-radius: 18px; /* This matches the container's border-radius, accounting for the border */
+}
+
+#profile-image-container:hover #profile-image {
+    opacity: 1;
+    filter: grayscale(0%) brightness(100%) sepia(0%) hue-rotate(0deg) saturate(100%);
+}
+
+footer {
+    width: 100%;
+    background-color: #001414;
+    color: #00ffff;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+footer p:first-child {
+    font-weight: bold;
+    font-size: 16px;
+}
+@keyframes smoothGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+}
+
+section.glow {
+    animation: smoothGlow 2s ease-in-out infinite;
+}
